@@ -1,0 +1,27 @@
+{
+"alpha2Code": "WA" ,
+"alpha3Code": "WAK" ,
+"altSpellings": [ "'Wakakaka'", "'Kakakkakaka'"],
+"area": 66666,
+"borders": ["'Thanos'", "'Cold Arm Guy'", "'Drug lords'", "'Atlantis'"],
+"callingCodes": [ 11 ],
+"capital": "'Wakanda'",
+"cioc": "'WAK'",
+"currencies": [ {
+    "code": "WAK",
+    "name": "Wakanda",
+    "symbol": "WWA"
+    
+    }],
+"demonym": "Wakan",
+"flag": "https://i.redd.it/42wp7sqe0i811.png",
+"gini":  33.3,
+"languages": [ "African"],
+"latlng": [ 111, 444] ,
+"name": "Wakanda",
+"nativeName": "ThanosDidWinThere",
+"numericCode": "",
+"population":  24342342,
+"region": "Africa" ,
+"subregion": "Central Africa"
+}

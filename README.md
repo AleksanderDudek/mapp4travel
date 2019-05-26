@@ -1,4 +1,7 @@
 # mapp4travel
+Node version used while developing:
+10.15.2
+
 
 ## Project setup
 ```
