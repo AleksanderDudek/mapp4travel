@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="dialog3" max-width="500px" justify-center>
+    <v-dialog v-model="dialog" max-width="500px" justify-center>
         <v-card>
           <v-card-title>
             <span>PERSONAL NOTE</span>
@@ -16,7 +16,7 @@
 
           </v-card-text>
           <v-card-actions>
-            <v-btn color="primary" flat @click="dialog3=false">Close</v-btn>
+            <v-btn color="primary" flat @click="dialog=false">Close</v-btn>
           </v-card-actions>
         </v-card>
     </v-dialog>
@@ -56,39 +56,38 @@ import store from '@/store';
 
 @Component({
   data() {
-        return {
-          dialog3: false,
-          currentCountryName: '',
-          currentNote: ''
-        };
-    },
+    return {
+      dialog: false,
+      currentCountryName: '',
+      currentNote: '',
+    };
+  },
   methods: {
-      onDialogClick(countryName) {
-        this.$data.dialog3 = true;
-        this.$data.currentCountryName = countryName;
-      },
-      onDialogSave() {
-        console.log('note: ', this.$data.currentNote)
-        this.$data.dialog3 = false;
-        this.$store.commit('addNoteToWantToVisit', {name: this.$data.currentCountryName, note: this.$data.currentNote });
-        this.$data.currentNote = '';
-        this.$data.currentCountryName = '';
-      },
-      onMoreInfoClick(countryName) {
-        this.$router.push({ name: "Country", params: { name: countryName } })
-      }
+    onDialogClick(countryName) {
+      this.$data.dialog = true;
+      this.$data.currentCountryName = countryName;
     },
+    onDialogSave() {
+      this.$data.dialog = false;
+      this.$store.commit('addNoteToWantToVisit', { name: this.$data.currentCountryName, note: this.$data.currentNote });
+      this.$data.currentNote = '';
+      this.$data.currentCountryName = '';
+    },
+    onMoreInfoClick(countryName) {
+      this.$router.push({ name: 'Country', params: { name: countryName } });
+    },
+  },
   computed: {
-      countries() {
-        return this.$store.state.wantToVisitCountries;
-      },
-      isNoteValid() {
-        return this.$data.currentNote.length === 0;
-      },
-      labelForCurrentCountry() {
-        return 'Note for '+this.$data.currentCountryName;
-      }
+    countries() {
+      return this.$store.state.wantToVisitCountries;
     },
+    isNoteValid() {
+      return this.$data.currentNote.length === 0;
+    },
+    labelForCurrentCountry() {
+      return `Note for ${this.$data.currentCountryName}`;
+    },
+  },
 })
 export default class Countries extends Vue {}
 </script>
@@ -97,10 +96,6 @@ export default class Countries extends Vue {}
   .flag {
     width: 5rem;
     height: 2rem;
-    /* min-width: 15%;
-    max-width:  20%;
-    min-height: 10px;
-    max-height: 20px; */
   }
   .button {
     font-size: 0.7rem !important;

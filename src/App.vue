@@ -80,7 +80,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import service from './service/CountryService.js'
+import service from './service/CountryService.js';
 import store from '@/store.js';
 
 @Component({
@@ -92,19 +92,18 @@ import store from '@/store.js';
     };
   },
   methods: {
-      changeLoadedState() {
-        this.$store.commit('changeIsLoaded', true)
-      }
+    changeLoadedState() {
+      this.$store.commit('changeIsLoaded', true);
+    },
   },
-  mounted () {
+  mounted() {
     service.getCountries().then((response) => {
       this.$store.commit('loadCountries', response);
-      this.$store.commit('changeIsLoaded', true)
-
+      this.$store.commit('changeIsLoaded', true);
     })
-    .catch((error) => {
-      this.$store.commit('changeIsLoaded', true)
-    });
+      .catch((error) => {
+        this.$store.commit('changeIsLoaded', true);
+      });
   },
 })
 export default class App extends Vue {}

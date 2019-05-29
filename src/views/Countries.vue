@@ -35,26 +35,25 @@ import store from '@/store';
 
 @Component({
   data() {
-        return {
-        };
-    },
+    return {
+    };
+  },
   methods: {
-      addToVisited( country) {
-        this.$store.commit('addVisited', country)
-      },
-      addToWantToVisit( country) {
-        this.$store.commit('addWantToVisit', country)
-      }
+    addToVisited(country) {
+      this.$store.commit('addVisited', country);
     },
+    addToWantToVisit(country) {
+      this.$store.commit('addWantToVisit', country);
+    },
+  },
   computed: {
-      countries() {
-        return this.$store.state.countries;
-      },
-      isLoadedState() {
-        console.log('i computed')
-        return this.$store.state.isCountriesLoaded;
-      }
+    countries() {
+      return this.$store.state.countries;
     },
+    isLoadedState() {
+      return this.$store.state.isCountriesLoaded;
+    },
+  },
 })
 export default class Countries extends Vue {}
 </script>
@@ -63,10 +62,6 @@ export default class Countries extends Vue {}
   .flag {
     width: 5rem;
     height: 2rem;
-    /* min-width: 15%;
-    max-width:  20%;
-    min-height: 10px;
-    max-height: 20px; */
   }
   .button {
     font-size: 0.7rem !important;

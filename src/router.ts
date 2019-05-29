@@ -1,34 +1,39 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Countries from "./views/Countries.vue";
-import CountryDisplay from "./views/CountryDisplay.vue";
+import Vue from 'vue';
+import Router from 'vue-router';
+import Countries from './views/Countries.vue';
+import CountryDisplay from './views/CountryDisplay.vue';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: "/countries",
-      name: "countries",
+      path: '/',
+      name: '',
       component: Countries,
     },
     {
-      path: "/country/:name",
-      name: "Country",
+      path: '/countries',
+      name: 'countries',
+      component: Countries,
+    },
+    {
+      path: '/country/:name',
+      name: 'Country',
       component: CountryDisplay,
     },
     {
-      path: "/visited",
-      name: "visited",
+      path: '/visited',
+      name: 'visited',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "visited" */ "./views/Visited.vue"),
+      component: () => import(/* webpackChunkName: "visited" */ './views/Visited.vue'),
     },
     {
-      path: "/wantToVisit",
-      name: "wantToVisit",
-      component: () => import(/* webpackChunkName: "wantToVisit" */ "./views/WantToVisit.vue"),
+      path: '/wantToVisit',
+      name: 'wantToVisit',
+      component: () => import(/* webpackChunkName: "wantToVisit" */ './views/WantToVisit.vue'),
     },
   ],
 });
