@@ -59,10 +59,6 @@ export default class Visited extends Vue {}
   .flag {
     width: 5rem;
     height: 2rem;
-    /* min-width: 15%;
-    max-width:  20%;
-    min-height: 10px;
-    max-height: 20px; */
   }
   .button {
     font-size: 0.7rem !important;

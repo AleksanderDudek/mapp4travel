@@ -6,13 +6,20 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    notes: [],
     countries: [],
     isCountriesLoaded: false,
     visitedCountries: [],
     wantToVisitCountries: []
   },
   mutations: {
+    addNoteToWantToVisit(state: any, countryWithNote: any) {
+      console.log(countryWithNote)
+      //get current country object
+      const i: number = state.wantToVisitCountries.findIndex((elem: any) => elem.name === countryWithNote.name);
+      //append note to that object
+      state.wantToVisitCountries[i].note = countryWithNote.note;
+      //happy
+    },
     changeIsLoaded(state: any, flag: boolean) {
       state.isCountriesLoaded = flag;
     },
@@ -30,15 +37,21 @@ export default new Vuex.Store({
 
       state.visitedCountries.push(country);
     },
+
+    /* can remove in future */
     // removeWantToVisit(state: any, name: any) {
-    //   state.wantToVisitCountries.push(this.getCountryByName(state, name));
+    //   state.wantToVisitCountries.filter((item: any) => item.name !== country.name);
+    // }
+    // removeVisited(state: any, name: any) {
+    //   state.wantToVisitCountries.filter((item: any) => item.name !== country.name);
     // }
   },
   getters: {
     getCountries: (state: any) => {
       return state.countries;
     },
-    getCountryByName: (state: any, name: string) => {
+    getCountryByName: (state: any) => (name: string) => {
+      console.log(state.countries.filter((country: any) => country.name === name));
       return state.countries.filter((country: any) => country.name === name);
     }
   }

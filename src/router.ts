@@ -14,6 +14,7 @@ export default new Router({
     },
     {
       path: "/country/:name",
+      name: "Country",
       component: CountryDisplay,
     },
     {
@@ -27,9 +28,6 @@ export default new Router({
     {
       path: "/wantToVisit",
       name: "wantToVisit",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "wantToVisit" */ "./views/WantToVisit.vue"),
     },
   ],

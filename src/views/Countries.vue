@@ -18,8 +18,8 @@
       </div>
       <div class="list-element-actions">
         <v-btn color="success" class="button" v-on:click="addToVisited(country)" >Visited</v-btn>
-        <v-btn color="warning" class="button">Want to visit</v-btn>
-        <v-btn color="info" class="button">More info?</v-btn>
+        <v-btn color="warning" class="button" v-on:click="addToWantToVisit(country)">Want to visit</v-btn>
+        <v-btn color="info" class="button"><router-link v-bind:to="'/country/' + country.name">View more</router-link></v-btn>
         </div>
       </div>
     </li>
@@ -40,9 +40,10 @@ import store from '@/store';
     },
   methods: {
       addToVisited( country) {
-        // alert('waaat')
-        console.log( country)
         this.$store.commit('addVisited', country)
+      },
+      addToWantToVisit( country) {
+        this.$store.commit('addWantToVisit', country)
       }
     },
   computed: {
@@ -69,8 +70,8 @@ export default class Countries extends Vue {}
   }
   .button {
     font-size: 0.7rem !important;
-    width: 2rem;
-    height: 0.6rem;
+    width: 2rem !important;
+    height: 0.6rem !important;
     background: lightcoral !important;
   }
   .list-element-main-info {
@@ -79,4 +80,8 @@ export default class Countries extends Vue {}
   .list-element-actions {
     width: 50%;
   }
+  li a {
+    text-decoration: none;
+    color: white;
+}
 </style>

@@ -14,7 +14,6 @@
               <v-list-tile-avatar>
                 <img src=".\assets\logo.png">
               </v-list-tile-avatar>
-
               <v-list-tile-content>
                 <v-list-tile-title>mApp Travel</v-list-tile-title>
               </v-list-tile-content>
@@ -99,13 +98,11 @@ import store from '@/store.js';
   },
   mounted () {
     service.getCountries().then((response) => {
-      console.log(response);
       this.$store.commit('loadCountries', response);
       this.$store.commit('changeIsLoaded', true)
 
     })
     .catch((error) => {
-      console.log(error);
       this.$store.commit('changeIsLoaded', true)
     });
   },
@@ -144,5 +141,8 @@ export default class App extends Vue {}
 .contents {
   padding: 2rem;
   width: 75%;
+}
+a {
+    text-decoration: none;
 }
 </style>
