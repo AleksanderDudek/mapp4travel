@@ -98,7 +98,7 @@ import store from '@/store.js';
   },
   mounted() {
     service.getCountries().then((response) => {
-      this.$store.commit('loadCountries', response);
+      this.$store.commit('loadCountries', response.data);
       this.$store.commit('changeIsLoaded', true);
     })
       .catch((error) => {

@@ -44,6 +44,13 @@ Please:
 v10.15.2
 
 ## Project setup
+
+# prerequisites
+# install vue-cli
+npm install -g vue-cli
+
+# in some cases vue-template-compiler breaks, try this
+npm install vue-template-compiler@
 ```
 npm install
 ```
